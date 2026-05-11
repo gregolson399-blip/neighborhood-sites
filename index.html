@@ -6,110 +6,170 @@
   <title>Neighborhood Sites</title>
 
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: Arial, sans-serif;
-      background: #f4f6fb;
+      background: #f4f7fb;
       color: #1f2937;
+      line-height: 1.6;
     }
 
     header {
+      position: sticky;
+      top: 0;
       background: #0f172a;
       color: white;
-      padding: 20px 40px;
+      padding: 18px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      z-index: 1000;
     }
 
     header h1 {
-      font-size: 20px;
+      font-size: 22px;
     }
 
     nav a {
       color: white;
-      margin-left: 15px;
       text-decoration: none;
-      font-size: 14px;
-      cursor: pointer;
+      margin-left: 20px;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
     }
 
     .hero {
-      padding: 80px 20px;
       text-align: center;
+      padding: 100px 20px;
       background: white;
     }
 
     .hero h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
+      font-size: 48px;
+      margin-bottom: 20px;
     }
 
     .hero p {
-      font-size: 16px;
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
       color: #555;
+      font-size: 18px;
     }
 
     .btn {
-      margin-top: 20px;
-      padding: 12px 20px;
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 24px;
       background: #2563eb;
       color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
     }
 
     .section {
-      padding: 60px 20px;
-      max-width: 1000px;
+      padding: 80px 20px;
+      max-width: 1100px;
       margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 25px;
     }
 
     .card {
       background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .card h3 {
-      margin-top: 0;
+      margin-bottom: 10px;
+      color: #111827;
     }
 
-    .pricing {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .testimonial {
+      font-style: italic;
+      color: #555;
+    }
+
+    .cta {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .cta h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 15px;
+      max-width: 700px;
+      margin: auto;
     }
 
     input, textarea {
-      padding: 12px;
-      border-radius: 8px;
+      padding: 14px;
       border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: 12px;
+      padding: 30px 20px;
+      background: white;
       color: #666;
+      font-size: 14px;
+    }
+
+    @media(max-width: 768px) {
+      .hero h2 {
+        font-size: 34px;
+      }
+
+      nav {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -118,93 +178,197 @@
 
 <header>
   <h1>Neighborhood Sites</h1>
+
   <nav>
     <a href="#home">Home</a>
-    <a href="#work">Examples</a>
+    <a href="#why">Why Us</a>
+    <a href="#portfolio">Portfolio</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero" id="home">
-  <h2>Websites That Help Local Businesses Grow</h2>
+  <h2>Modern Websites That Help Local Businesses Get More Customers</h2>
+
   <p>
-    We build modern, affordable websites for small businesses that want more customers and a better online presence.
+    Fast, affordable websites built for small businesses that want a better online presence, more leads, and long-term growth.
   </p>
-  <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-    Get a Free Quote
-  </button>
+
+  <a class="btn" href="#contact">Get Your Free Website Quote</a>
 </section>
 
-<!-- WORK -->
-<section class="section" id="work">
-  <h2>Examples</h2>
+<section class="section" id="why">
+  <h2>Why Choose Neighborhood Sites?</h2>
+
   <div class="grid">
     <div class="card">
-      <h3>Barbershop</h3>
-      <p>Clean booking-style website for local clients.</p>
+      <h3>⚡ Fast Turnaround</h3>
+      <p>Most websites completed within 3–5 days.</p>
     </div>
 
     <div class="card">
-      <h3>Food Truck</h3>
-      <p>Menu + location updates for daily customers.</p>
+      <h3>💰 Affordable Pricing</h3>
+      <p>Built for small businesses without expensive agency pricing.</p>
+    </div>
+
+    <div class="card">
+      <h3>📱 Mobile Friendly</h3>
+      <p>Your website looks great on phones, tablets, and desktops.</p>
+    </div>
+
+    <div class="card">
+      <h3>🤝 Personal Support</h3>
+      <p>Direct communication and ongoing website help when needed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Who We Help</h2>
+
+  <div class="grid">
+    <div class="card"><h3>💈 Barbershops</h3></div>
+    <div class="card"><h3>🏋️ Gyms & Trainers</h3></div>
+    <div class="card"><h3>🍔 Food Trucks</h3></div>
+    <div class="card"><h3>🍽️ Restaurants</h3></div>
+    <div class="card"><h3>🛠️ Local Services</h3></div>
+    <div class="card"><h3>🧼 Small Businesses</h3></div>
+  </div>
+</section>
+
+<section class="section" id="portfolio">
+  <h2>Example Projects</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Modern Barbershop</h3>
+      <p>Online booking + clean service layout.</p>
     </div>
 
     <div class="card">
       <h3>Fitness Studio</h3>
-      <p>Membership + contact leads for signups.</p>
+      <p>Membership signups and mobile-friendly pages.</p>
+    </div>
+
+    <div class="card">
+      <h3>Food Truck</h3>
+      <p>Menu updates and location information.</p>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
 <section class="section" id="pricing">
   <h2>Pricing</h2>
 
   <div class="grid">
-    <div class="pricing">
-      <h3>Starter</h3>
-      <p><b>$150</b> setup</p>
-      <p>1-page website + contact form</p>
+    <div class="card">
+      <h3>Starter Website</h3>
+      <h1>$150</h1>
+
+      <ul>
+        <li>1-page website</li>
+        <li>Mobile optimized</li>
+        <li>Contact form</li>
+        <li>Fast setup</li>
+      </ul>
     </div>
 
-    <div class="pricing">
+    <div class="card">
       <h3>Business Plan</h3>
-      <p><b>$300</b> setup + $25/month</p>
-      <p>Full website + updates + support</p>
+      <h1>$300 + $25/mo</h1>
+
+      <ul>
+        <li>3–5 page website</li>
+        <li>Monthly updates</li>
+        <li>Website maintenance</li>
+        <li>Priority support</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<section class="section">
+  <h2>How It Works</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>1. Contact Us</h3>
+      <p>Tell us about your business and goals.</p>
+    </div>
+
+    <div class="card">
+      <h3>2. We Build Your Site</h3>
+      <p>We design a modern website built for your business.</p>
+    </div>
+
+    <div class="card">
+      <h3>3. Launch Online</h3>
+      <p>Your business goes live with ongoing support included.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>What Businesses Are Saying</h2>
+
+  <div class="grid">
+    <div class="card testimonial">
+      “Fast communication and a much cleaner website than what we had before.”
+    </div>
+
+    <div class="card testimonial">
+      “Affordable and easy to work with. Our customers love the new site.”
+    </div>
+
+    <div class="card testimonial">
+      “Professional design and quick turnaround.”
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Ready to Upgrade Your Business Online?</h2>
+
+  <p>
+    Let’s build a website that helps your business stand out and attract more customers.
+  </p>
+
+  <a class="btn" href="#contact">Get Your Free Website Quote</a>
+</section>
+
 <section class="section" id="contact">
   <h2>Contact Us</h2>
 
   <form onsubmit="sendEmail(event)">
-    <input id="name" placeholder="Name" required />
-    <input id="email" placeholder="Email" required />
-    <textarea id="message" placeholder="Tell us about your business" required></textarea>
+    <input type="text" id="name" placeholder="Your Name" required>
+
+    <input type="email" id="email" placeholder="Your Email" required>
+
+    <textarea id="message" rows="6" placeholder="Tell us about your business" required></textarea>
+
     <button class="btn" type="submit">Send Message</button>
   </form>
 </section>
 
 <footer>
-  © 2026 Neighborhood Sites
+  <p>Neighborhood Sites © 2026</p>
+  <p>Email: your@email.com</p>
 </footer>
 
 <script>
-function sendEmail(e){
-  e.preventDefault();
+  function sendEmail(e) {
+    e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
 
-  window.location.href =
-    `mailto:your@email.com?subject=New Lead from ${name}&body=${email}%0A%0A${message}`;
-}
+    window.location.href =
+      `mailto:your@email.com?subject=New Website Lead from ${name}&body=Email: ${email}%0A%0A${message}`;
+  }
 </script>
 
 </body>
 </html>
+
