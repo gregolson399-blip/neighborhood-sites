@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neighborhood Sites</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f6fa;
+      color: #222;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    section {
+      display: none;
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: none;
+      background: #111827;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Neighborhood Sites</h1>
+  <nav>
+    <a onclick="show('home')">Home</a>
+    <a onclick="show('portfolio')">Examples</a>
+    <a onclick="show('pricing')">Pricing</a>
+    <a onclick="show('contact')">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="active">
+  <h2>Modern Websites for Local Businesses</h2>
+  <p>
+    Neighborhood Sites helps local businesses get modern websites that attract customers and grow their business. Simple setup. Affordable pricing. Ongoing support included.
+  </p>
+</section>
+
+<section id="portfolio">
+  <h2>Examples</h2>
+  <div class="card">Barbershop Website – booking + services</div>
+  <div class="card">Food Truck – menu + location updates</div>
+  <div class="card">Gym – memberships + contact leads</div>
+</section>
+
+<section id="pricing">
+  <h2>Pricing</h2>
+  <div class="card">
+    <h3>Starter</h3>
+    <p>$150 setup</p>
+    <p>Simple website + contact form</p>
+  </div>
+
+  <div class="card">
+    <h3>Business Plan</h3>
+    <p>$300 setup + $25/month</p>
+    <p>Full website + updates + support</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+
+  <form onsubmit="sendEmail(event)">
+    <input id="name" placeholder="Name" required />
+    <input id="email" placeholder="Email" required />
+    <textarea id="message" placeholder="Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <p id="status"></p>
+</section>
+
+<script>
+  function show(page) {
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById(page).classList.add("active");
+  }
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    window.location.href =
+      `mailto:your@email.com?subject=Lead from ${name}&body=${email}%0A%0A${message}`;
+  }
+</script>
+
+</body>
+</html>
