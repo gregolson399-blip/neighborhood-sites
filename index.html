@@ -1,176 +1,373 @@
-export default function Home() {
-  return (
-    <main className="bg-[#070A12] text-white">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neighborhood Sites</title>
 
-      {/* HERO */}
-      <section className="relative px-6 pt-32 pb-28 overflow-hidden">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        {/* background glow */}
-        <div className="absolute inset-0">
-          <div className="absolute w-[600px] h-[600px] bg-blue-500/30 blur-[140px] rounded-full top-[-200px] left-[-100px]" />
-          <div className="absolute w-[600px] h-[600px] bg-purple-500/20 blur-[140px] rounded-full bottom-[-200px] right-[-100px]" />
-        </div>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
 
-        <div className="relative max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Build Modern Websites for Local Businesses in Minutes
-          </h1>
+    header {
+      position: sticky;
+      top: 0;
+      background: #0f172a;
+      color: white;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
 
-          <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Clean, fast, mobile-ready websites that help small businesses look professional and get more customers online.
-          </p>
+    header h1 {
+      font-size: 22px;
+    }
 
-          <div className="mt-10 flex justify-center gap-4">
-            <a className="px-8 py-3 rounded-full bg-white text-black font-semibold">
-              Get Started
-            </a>
-            <a className="px-8 py-3 rounded-full border border-white/20">
-              See Examples
-            </a>
-          </div>
-        </div>
-      </section>
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+      transition: 0.3s;
+    }
 
-      {/* TRUST STRIP */}
-      <section className="border-y border-white/10 py-10">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-3 text-center text-white/70">
-          <p>⚡ Fast turnaround</p>
-          <p>📱 Mobile optimized</p>
-          <p>💼 Built for local businesses</p>
-        </div>
-      </section>
+    nav a:hover {
+      color: #60a5fa;
+    }
 
-      {/* PROBLEM / VALUE SECTION */}
-      <section className="px-6 py-24">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: white;
+    }
 
-          <div>
-            <h2 className="text-4xl font-bold">
-              Most small businesses lose customers because their website looks outdated.
-            </h2>
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
 
-            <p className="mt-4 text-white/70">
-              People judge businesses in seconds. If your website looks old, they leave — even if your service is great.
-            </p>
-          </div>
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #555;
+      font-size: 18px;
+    }
 
-          <div className="p-8 rounded-2xl bg-white/5 border border-white/10">
-            <p className="text-white/80">
-              We fix that by giving businesses clean, modern websites that instantly build trust.
-            </p>
-          </div>
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 24px;
+      background: #2563eb;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
 
-        </div>
-      </section>
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
 
-      {/* FEATURES (SaaS style cards like 10Web) */}
-      <section className="px-6 py-24 bg-white/5">
-        <div className="max-w-6xl mx-auto">
+    .section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-          <h2 className="text-4xl font-bold mb-12 text-center">
-            Everything You Need to Look Professional Online
-          </h2>
+    .section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
 
-          <div className="grid md:grid-cols-3 gap-6">
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
 
-            <div className="p-6 rounded-2xl border border-white/10 bg-black/30">
-              <h3 className="text-xl font-semibold">Modern Design System</h3>
-              <p className="text-white/60 mt-2">
-                Clean layouts, strong typography, and real structure that feels premium.
-              </p>
-            </div>
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
 
-            <div className="p-6 rounded-2xl border border-white/10 bg-black/30">
-              <h3 className="text-xl font-semibold">Built for Mobile</h3>
-              <p className="text-white/60 mt-2">
-                Over 80% of customers are on phones — your site will be perfect there.
-              </p>
-            </div>
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
-            <div className="p-6 rounded-2xl border border-white/10 bg-black/30">
-              <h3 className="text-xl font-semibold">Fast & Simple</h3>
-              <p className="text-white/60 mt-2">
-                No complexity. Just clean websites that convert visitors into customers.
-              </p>
-            </div>
+    .card h3 {
+      margin-bottom: 10px;
+      color: #111827;
+    }
 
-          </div>
-        </div>
-      </section>
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
 
-      {/* WORK / SHOWCASE */}
-      <section className="px-6 py-24">
-        <div className="max-w-6xl mx-auto">
+    .testimonial {
+      font-style: italic;
+      color: #555;
+    }
 
-          <h2 className="text-4xl font-bold mb-10">
-            Example Transformations
-          </h2>
+    .cta {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
 
-          <div className="grid md:grid-cols-2 gap-6">
+    .cta h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
 
-            <div className="h-72 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center">
-              Before Website
-            </div>
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 700px;
+      margin: auto;
+    }
 
-            <div className="h-72 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10 flex items-center justify-center">
-              After Redesign
-            </div>
+    input, textarea {
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+    }
 
-          </div>
-        </div>
-      </section>
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: white;
+      color: #666;
+      font-size: 14px;
+    }
 
-      {/* PRICING (SaaS style like 10Web) */}
-      <section className="px-6 py-24 bg-black/40">
-        <div className="max-w-6xl mx-auto text-center">
+    @media(max-width: 768px) {
+      .hero h2 {
+        font-size: 34px;
+      }
 
-          <h2 className="text-4xl font-bold mb-12">Simple Pricing</h2>
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
 
-          <div className="grid md:grid-cols-2 gap-8 text-left">
+<body>
 
-            <div className="p-8 rounded-2xl border border-white/10 bg-white/5">
-              <h3 className="text-2xl font-bold">Starter Website</h3>
-              <p className="text-3xl mt-2 font-bold">$250</p>
+<header>
+  <h1>Neighborhood Sites</h1>
 
-              <ul className="mt-6 space-y-2 text-white/70">
-                <li>• 1–3 page website</li>
-                <li>• Mobile friendly design</li>
-                <li>• Contact form</li>
-                <li>• Fast delivery</li>
-              </ul>
-            </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#why">Why Us</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-            <div className="p-8 rounded-2xl border border-white/10 bg-white/5">
-              <h3 className="text-2xl font-bold">Website Refresh</h3>
-              <p className="text-3xl mt-2 font-bold">$150</p>
+<section class="hero" id="home">
+  <h2>Modern Websites That Help Local Businesses Get More Customers</h2>
 
-              <ul className="mt-6 space-y-2 text-white/70">
-                <li>• Update old websites</li>
-                <li>• Modern redesign</li>
-                <li>• Better mobile layout</li>
-                <li>• Cleaner structure</li>
-              </ul>
-            </div>
+  <p>
+    Fast, affordable websites built for small businesses that want a better online presence, more leads, and long-term growth.
+  </p>
 
-          </div>
-        </div>
-      </section>
+  <a class="btn" href="#contact">Get Your Free Website Quote</a>
+</section>
 
-      {/* CTA FINAL */}
-      <section className="px-6 py-28 text-center">
-        <h2 className="text-4xl font-bold">
-          Ready to upgrade your business website?
-        </h2>
+<section class="section" id="why">
+  <h2>Why Choose Neighborhood Sites?</h2>
 
-        <p className="mt-4 text-white/70">
-          Get a clean, modern site that actually brings in customers.
-        </p>
+  <div class="grid">
+    <div class="card">
+      <h3>⚡ Fast Turnaround</h3>
+      <p>Most websites completed within 3–5 days.</p>
+    </div>
 
-        <a className="inline-block mt-8 px-8 py-4 bg-white text-black rounded-full font-semibold">
-          Contact Me
-        </a>
-      </section>
+    <div class="card">
+      <h3>💰 Affordable Pricing</h3>
+      <p>Built for small businesses without expensive agency pricing.</p>
+    </div>
 
-    </main>
-  );
-}
+    <div class="card">
+      <h3>📱 Mobile Friendly</h3>
+      <p>Your website looks great on phones, tablets, and desktops.</p>
+    </div>
+
+    <div class="card">
+      <h3>🤝 Personal Support</h3>
+      <p>Direct communication and ongoing website help when needed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Who We Help</h2>
+
+  <div class="grid">
+    <div class="card"><h3>💈 Barbershops</h3></div>
+    <div class="card"><h3>🏋️ Gyms & Trainers</h3></div>
+    <div class="card"><h3>🍔 Food Trucks</h3></div>
+    <div class="card"><h3>🍽️ Restaurants</h3></div>
+    <div class="card"><h3>🛠️ Local Services</h3></div>
+    <div class="card"><h3>🧼 Small Businesses</h3></div>
+  </div>
+</section>
+
+<section class="section" id="portfolio">
+  <h2>Example Projects</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Modern Barbershop</h3>
+      <p>Online booking + clean service layout.</p>
+    </div>
+
+    <div class="card">
+      <h3>Fitness Studio</h3>
+      <p>Membership signups and mobile-friendly pages.</p>
+    </div>
+
+    <div class="card">
+      <h3>Food Truck</h3>
+      <p>Menu updates and location information.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <h2>Pricing</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Starter Website</h3>
+      <h1>$150</h1>
+
+      <ul>
+        <li>1-page website</li>
+        <li>Mobile optimized</li>
+        <li>Contact form</li>
+        <li>Fast setup</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Business Plan</h3>
+      <h1>$300 + $25/mo</h1>
+
+      <ul>
+        <li>3–5 page website</li>
+        <li>Monthly updates</li>
+        <li>Website maintenance</li>
+        <li>Priority support</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>How It Works</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>1. Contact Us</h3>
+      <p>Tell us about your business and goals.</p>
+    </div>
+
+    <div class="card">
+      <h3>2. We Build Your Site</h3>
+      <p>We design a modern website built for your business.</p>
+    </div>
+
+    <div class="card">
+      <h3>3. Launch Online</h3>
+      <p>Your business goes live with ongoing support included.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>What Businesses Are Saying</h2>
+
+  <div class="grid">
+    <div class="card testimonial">
+      “Fast communication and a much cleaner website than what we had before.”
+    </div>
+
+    <div class="card testimonial">
+      “Affordable and easy to work with. Our customers love the new site.”
+    </div>
+
+    <div class="card testimonial">
+      “Professional design and quick turnaround.”
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Ready to Upgrade Your Business Online?</h2>
+
+  <p>
+    Let’s build a website that helps your business stand out and attract more customers.
+  </p>
+
+  <a class="btn" href="#contact">Get Your Free Website Quote</a>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact Us</h2>
+
+  <form onsubmit="sendEmail(event)">
+    <input type="text" id="name" placeholder="Your Name" required>
+
+    <input type="email" id="email" placeholder="Your Email" required>
+
+    <textarea id="message" rows="6" placeholder="Tell us about your business" required></textarea>
+
+    <button class="btn" type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>Neighborhood Sites © 2026</p>
+  <p>Email: your@email.com</p>
+</footer>
+
+<script>
+  function sendEmail(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    window.location.href =
+      `mailto:your@email.com?subject=New Website Lead from ${name}&body=Email: ${email}%0A%0A${message}`;
+  }
+</script>
+
+</body>
+</html>
